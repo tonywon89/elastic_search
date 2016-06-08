@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: elastic_search_production
-  username: elastic_search
-  password: <%= ENV['ELASTIC_SEARCH_DATABASE_PASSWORD'] %>
