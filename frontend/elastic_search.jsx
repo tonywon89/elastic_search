@@ -1,11 +1,13 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
+var SearchBar = require("./components/search_bar");
+
 var ElasticSearch = React.createClass({
   render: function () {
     return (
       <div>
-        <input type="text" />
+        <SearchBar />
       </div>
     );
   }
