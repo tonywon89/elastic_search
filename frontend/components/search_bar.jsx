@@ -14,7 +14,8 @@ var SearchBar = React.createClass({
   render: function () {
     return (
       <div>
-        <input type="text" value={this.state.content} onChange={this.updateContent} />
+        <p>Please enter a name of a restaurant</p>
+        <input type="text" placeholder="Enter name of restaurant" value={this.state.content} onChange={this.updateContent} />
         <SearchIndex currentInput={this.state.content}/>
       </div>
     );
