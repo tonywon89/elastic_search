@@ -1,12 +1,14 @@
 var React = require("react");
 
+var ClientActions = require("../actions/client_actions");
+
 var SearchIndex = React.createClass({
   getInitialState: function () {
-      return ({ items: [] });
+    return ({ items: [] });
   },
 
   componentWillReceiveProps: function (newProps) {
-
+    ClientActions.fetchBusinesses(newProps.currentInput);
   },
 
   render: function () {
