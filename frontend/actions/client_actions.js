@@ -1,8 +1,12 @@
-
+var ApiUtil = require("../util/api_util");
 
 var ClientActions = {
   fetchBusinesses: function (currentInput) {
-    alert("We are in ClientActions, " + currentInput );
+    ApiUtil.fetchBusinesses(currentInput);
+  },
+
+  emptyBusinesses: function () {
+    ApiUtil.emptyBusinesses();
   }
 };
 

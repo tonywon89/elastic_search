@@ -1,14 +1,31 @@
 var React = require("react");
 
 var ClientActions = require("../actions/client_actions");
+var BusinessStore = require("../stores/business_store");
 
 var SearchIndex = React.createClass({
   getInitialState: function () {
-    return ({ items: [] });
+    return ({ items: BusinessStore.all() });
+  },
+
+  componentDidMount: function () {
+    this.listener = BusinessStore.addListener(this._onChange);
+  },
+
+  _onChange: function () {
+    this.setState({ items: BusinessStore.all() });
+  },
+
+  componentWillUnmoun: function () {
+    this.listener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
-    ClientActions.fetchBusinesses(newProps.currentInput);
+    if (newProps.currentInput) {
+      ClientActions.fetchBusinesses(newProps.currentInput);
+    } else {
+      ClientActions.emptyBusinesses();
+    }
   },
 
   render: function () {
