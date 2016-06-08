@@ -38,7 +38,7 @@ var SearchIndex = React.createClass({
     });
 
     if (lists.length === 0 && this.props.currentInput) {
-      lists = <li>There are no restaurants of that start with that name</li>;
+      lists = <li>There are no businesses of that start with that name</li>;
     }
     return (
       <ul>
