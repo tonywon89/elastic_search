@@ -1,7 +1,13 @@
 class Api::BusinessesController < ApplicationController
 
   def index
-    @businesses = Business.where("name ILIKE ?", "#{params[:currentInput]}%")
+    if params[:currentInput].nil?
+      @businesses = []
+    else
+      @businesses = Business.search(params[:currentInput])
+
+      # @businesses = Business.where("name ILIKE ?", params[:currentInput] + "%")
+    end
 
     render :index
   end
